@@ -13,7 +13,7 @@ app.get("/user", (req, res) => {
         users: [
             {
                 id: 1,
-                name: "Ravi",
+                name: "Adarsh",
             },
             {
                 id: 2,
