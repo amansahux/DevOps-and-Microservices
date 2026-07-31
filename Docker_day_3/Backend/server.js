@@ -2,6 +2,8 @@ import express from "express"
 
 const app = express()
 
+app.use(express.static("./public"))
+
 const data = [
     {
         id: 1,
@@ -90,4 +92,7 @@ app.get("/api/data", (req, res) => {
     })
 })
 
+app.get("*name",(req,res)=>{
+    // res.sendFile("public/index.html" , {root:__dirname})
+})
 app.listen(3000, () => { console.log('Server is started on port 3k') })
