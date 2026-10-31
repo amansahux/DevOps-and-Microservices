@@ -51,6 +51,8 @@ const App = () => {
           </tbody>
         </table>
       )}
+
+      <button>Testing</button>
     </div>
   );
 };
