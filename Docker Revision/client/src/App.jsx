@@ -28,7 +28,15 @@ const App = () => {
       {loading && <p>Loading users...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
       {!loading && !error && (
-        <table border="1" cellPadding="8" style={{ borderCollapse: "collapse", width: "100%", maxWidth: "800px" }}>
+        <table
+          border="1"
+          cellPadding="8"
+          style={{
+            borderCollapse: "collapse",
+            width: "100%",
+            maxWidth: "800px",
+          }}
+        >
           <thead>
             <tr style={{ background: "#f2f2f2", textAlign: "left" }}>
               <th>ID</th>
@@ -52,7 +60,20 @@ const App = () => {
         </table>
       )}
 
-      <button>Testing</button>
+      <button
+        style={{
+          backgroundColor: "green",
+          color: "white",
+          padding: "10px",
+          borderRadius: "5px",
+          marginTop: "10px",
+          marginLeft: "10px",
+          cursor: "pointer",
+          border: "none",
+        }}
+      >
+        Testing
+      </button>
     </div>
   );
 };
