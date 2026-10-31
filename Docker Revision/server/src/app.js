@@ -1,6 +1,15 @@
 import express from "express";
-import jwt from "jsonwebtoken"
-const app = express()
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const app = express();
+
+// Serve static assets from public folder (in Docker build, client dist is copied to /app/public)
+const publicPath = path.resolve(__dirname, "../public");
+app.use(express.static(publicPath));
 
 app.get("/data", (req, res) => { 
     res.status(200).json([
@@ -17,8 +26,9 @@ app.get("/data", (req, res) => {
     ]);
 });
 
-app.get("/", (req, res) => {
-    res.send("Hello World");
-})
+// Fallback to React app index.html for any SPA routes (Express v5 syntax: /{0,})
+app.get("/{*splat}", (req, res) => {
+    res.sendFile(path.join(publicPath, "index.html"));
+});
 
-export default app
+export default app;
