@@ -3,12 +3,12 @@ import morgan from "morgan"
 
 const app = express()
 app.use(morgan("dev"))
-app.get("/", (req, res) => {
-    let sum;
-    for (let i = 0; i >= 100000000000; i++) {
+app.get("/", async (req, res) => {
+    let sum = 0;
+    for (let i = 0; i <= 1000064600; i++) {
         sum += i
     }
-    res.status(200).json({
+    await res.status(200).json({
         message: "Server Running ",
         Sum: sum
     })
